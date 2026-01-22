@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defend Point — Защита от мошенников и цифрового шантажа</title>
+    <meta name="description" content="Профессиональная помощь при угрозах слива информации, мошенничестве и цифровой травле. Конфиденциально и легально.">
+    <style>
+        :root {
+            --primary: #0c2461;
+            --secondary: #1e3799;
+            --accent: #4bcffa;
+            --dark: #0a1931;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        body {
+            background: linear-gradient(145deg, var(--dark) 0%, var(--primary) 30%, var(--secondary) 100%);
+            color: #fff;
+            line-height: 1.7;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+        /* Шапка с лого */
+        .hero {
+            background: 
+                linear-gradient(rgba(12, 36, 97, 0.88), rgba(30, 55, 153, 0.92)),
+                url('https://i.ibb.co/p6DFkBYg') center/cover no-repeat;
+            min-height: 65vh;
+            border-radius: 0 0 30px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        h1 {
+            font-size: 3.4rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+            font-weight: 700;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+            line-height: 1.1;
+        }
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        /* Основные кнопки */
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin: 40px 0 60px;
+        }
+        .btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 24px 22px;
+            font-size: 1.1rem;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: left;
+            backdrop-filter: blur(10px);
+            font-weight: 500;
+            position: relative;
+        }
+        .btn:hover {
+            background: rgba(75, 207, 250, 0.2);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(75, 207, 250, 0.15);
+        }
+        .btn::after {
+            content: " → оплата только при результате";
+            display: block;
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+        /* Секции */
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 18px;
+            padding: 40px;
+            margin: 50px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .section-title {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+text-align: center;
+        }
+        /* Блок "Как мы работаем" */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .step {
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 14px;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.3s;
+            position: relative;
+        }
+        .step:hover {
+            transform: translateY(-5px);
+        }
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--accent);
+            color: var(--dark);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .step h3 {
+            margin-bottom: 12px;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.3rem;
+            margin-top: 10px;
+        }
+        .step p {
+            opacity: 0.9;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+        /* Направления работы */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .feature {
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 14px;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.3s;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        .feature h3 {
+            margin-bottom: 12px;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.3rem;
+        }
+        .feature p {
+            opacity: 0.9;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+        /* FAQ */
+        .faq-item {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 18px;
+            border-left: 4px solid var(--accent);
+        }
+        .faq-question {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        /* Результат */
+        .result {
+            display: none;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 35px;
+            border-radius: 18px;
+            margin: 40px 0;
+            text-align: center;
+            border-top: 5px solid var(--accent);
+            backdrop-filter: blur(10px);
+        }
+        .telegram-link {
+            display: inline-block;
+            background: #0088cc;
+            color: white;
+            padding: 16px 40px;
+            margin-top: 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        .telegram-link:hover {
+            background: #006da0;
+            transform: scale(1.05);
+            border-color: var(--accent);
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .hero { min-height: 55vh; padding: 30px 20px; }
+            .section { padding: 30px 20px; }
+            .menu { grid-template-columns: 1fr; }
+.btn { padding: 20px 18px; }
+            .steps, .features { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ШАПКА С ЛОГО -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Defend Point</h1>
+                <p class="tagline">
+                    Работаем честно — нет проблемы, с которой мы не сможем справиться.
+                </p>
+            </div>
+        </div>
+
+        <!-- ОСНОВНЫЕ КНОПКИ -->
+        <button class="btn" onclick="window.location.href='https://t.me/defendpoint_official'">
+    Угрожают сливом информации
+</button>
+
+<button class="btn" onclick="window.location.href='https://t.me/defendpoint_official'">
+    Стали жертвой мошенничества
+</button>
+
+<button class="btn" onclick="window.location.href='https://t.me/defendpoint_official'">
+    Травля / угрозы
+</button>
+
+<button class="btn" onclick="window.location.href='https://t.me/defendpoint_official'">
+    Другая ситуация
+</button>
+        </div>
+
+        <div id="result-box" class="result"></div>
+
+        <!-- КАК МЫ РАБОТАЕМ -->
+        <div class="section">
+            <h2 class="section-title">Как мы работаем</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Бесплатный анализ</h3>
+                    <p>Вы присылаете имеющиеся данные. Мы проводим предварительную оценку задачи.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Честная оценка</h3>
+                    <p>Если задача решаема — называем точную стоимость и сроки. Если нет — говорим прямо.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Оплата только при результате</h3>
+                    <p>Вы вносите оплату ТОЛЬКО после того, как мы подтвердим, что можем предоставить информацию.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Передача отчёта</h3>
+                    <p>Вы получаете структурированные данные: доказательства, идентификацию, рекомендации.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- НАПРАВЛЕНИЯ РАБОТЫ -->
+        <div class="section">
+            <h2 class="section-title">Направления работы</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Защита от шантажа</h3>
+                    <p>Анализ угроз, сбор доказательств, разработка стратегии противодействия.</p>
+                </div>
+                <div class="feature">
+                    <h3>Расследование мошенничества</h3>
+                    <p>Идентификация злоумышленников, сбор информации для дальнейших действий.</p>
+                </div>
+                <div class="feature">
+                    <h3>Цифровая гигиена</h3>
+                    <p>Проверка утечек данных, рекомендации по защите персональной информации.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="section">
+            <h2 class="section-title">Вопросы и ответы</h2>
+            <div class="faq-item">
+                <div class="faq-question">Вы берёте предоплату?</div>
+                <p>Нет. Сначала мы проводим бесплатный анализ задачи. Оплата требуется только после того, как мы подтвердим, что сможем предоставить вам конкретную информацию.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Какие методы вы используете?</div>
+                <p>Работаем исключительно в правовом поле, используем открытые источники информации.</p>
+</div>
+            <div class="faq-item">
+                <div class="faq-question">Сколько стоит услуга?</div>
+                <p>Стоимость определяется индивидуально после анализа сложности задачи. Вы узнаете цену ДО внесения оплаты.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2024 Defend Point. Консультации через Telegram: @defendpoint_official</p>
+            <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.7;">Конфиденциальность и безопасность — наш приоритет.</p>
+        </footer>
+    </div>
+
+    <script>
+        function showHelp(type) {
+            const resultBox = document.getElementById('result-box');
+            const messages = {
+                threat: {
+                    title: 'Анализ угроз слива информации',
+                    text: 'Проведём оценку рисков, соберём доказательную базу и разработаем план действий. Оплата — только после подтверждения, что мы можем найти источник угроз.'
+                },
+                scam: {
+                    title: 'Расследование мошенничества',
+                    text: 'Идентифицируем злоумышленника, соберём информацию для возможного обращения в правоохранительные органы. Оплата — только при успешном результате.'
+                },
+                abuse: {
+                    title: 'Противодействие травле и оскорблениям',
+                    text: 'Установим источник агрессии, подготовим материалы для защиты ваших прав. Сначала анализ — потом оплата.'
+                },
+                other: {
+                    title: 'Индивидуальная консультация',
+                    text: 'Опишите ситуацию — мы найдём оптимальное решение для вашего случая. Бесплатный анализ → оплата только при результате.'
+                }
+            };
+
+            const msg = messages[type];
+            resultBox.innerHTML = `
+    <h2 style="color: #4bcffa; margin-bottom: 20px; font-size: 1.8rem;">
+        ${msg.title}
+    </h2>
+    <p style="font-size: 1.1rem; margin-bottom: 25px; max-width: 700px; margin-left: auto; margin-right: auto;">
+        ${msg.text}
+    </p>
+    <a href="https://t.me/defendpoint_official" class="telegram-link" target="_blank">
+        📩 Начать с бесплатного анализа: @defendpoint_official
+    </a>
+    <p style="margin-top: 20px; opacity: 0.8;">
+        Ответим в течение 15 минут. Оплата — только при подтверждении результата.
+    </p>
+`;
+                <a href="https://t.me/defendpoint_official" class="telegram-link" target="_blank">
+                    📩 Начать с бесплатного анализа: @defendpoint_official
+                </a>
+                <p style="margin-top: 20px; opacity: 0.8;">
+                    Ответим в течение 15 минут. Оплата — только при подтверждении результата.
+                </p>
+            ;
+
+            resultBox.style.display = 'block';
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
